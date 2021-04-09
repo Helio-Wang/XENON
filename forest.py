@@ -32,24 +32,7 @@ class Node:
 
     def is_leaf(self):
         return self.left_child is None and self.right_child is None
-
-    def becomes_leaf(self):
-        self.left_child = None
-        self.right_child = None
-
-    def becomes_root(self):
-        self.parent = None
-
-    def get_sibling(self):
-        if self.is_root():
-            return None
-        if self == self.parent.left_child:
-            return self.parent.right_child
-        return self.parent.left_child
-
-    def other_child(self, child):
-        return self.left_child if child == self.right_child else self.right_child
-
+    
     def leaf_set(self):
         """ Set of leaves in the subtree """
         if self.is_leaf():
